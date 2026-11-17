@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/site';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
+}
+const { project } = Astro.props;
+---
+<BaseLayout title={`${project.title} | Luminary Marketing`}>
+  <section class="container-lux py-40">
+    <p class="eyebrow">{project.tag}</p>
+    <h1 class="h-display mt-6 text-5xl md:text-7xl">{project.title}</h1>
+    <div class="img-round mt-12 aspect-[16/9]"><img src={project.image} alt="" /></div>
+  </section>
+</BaseLayout>

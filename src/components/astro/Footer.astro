@@ -1,0 +1,30 @@
+---
+import { site } from '../../data/site';
+---
+<footer class="border-t border-ivory/[0.08] bg-obsidian">
+  <div class="container-lux grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div>
+      <img src="/images/lm-logo.png" alt={site.name} width="900" height="572" class="logo-hover h-24 w-auto" loading="lazy" />
+      <p class="mt-4 max-w-xs text-sm leading-7 text-ivory/55">Social media, content, ads and websites for aesthetic and medical practices.</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="eyebrow mb-5">Explore</p>
+      <ul class="space-y-3 text-sm text-ivory/75">
+        {site.nav.map((n) => <li><a href={n.href} class="foot-link transition-colors hover:text-champagne-soft">{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <p class="eyebrow mb-5">Contact</p>
+      <ul class="space-y-3 text-sm text-ivory/75">
+        <li><a href={site.phoneHref} class="foot-link transition-colors hover:text-champagne-soft">{site.phone}</a></li>
+        <li><a href={`mailto:${site.email}`} class="foot-link transition-colors hover:text-champagne-soft">{site.email}</a></li>
+        <li><a href={site.instagramUrl} target="_blank" rel="noopener" class="foot-link transition-colors hover:text-champagne-soft">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-ivory/[0.06]">
+    <p class="container-lux py-6 text-xs text-ivory/45">
+      <a href="/privacy" class="hover:text-ivory/70">Privacy Policy</a> &nbsp;|&nbsp; © {new Date().getFullYear()} All Rights Reserved by {site.name} Agency.
+    </p>
+  </div>
+</footer>

@@ -1,0 +1,8 @@
+---
+interface Props { title?: string; class?: string; }
+const { title, class: className = '' } = Astro.props;
+---
+<section class={`container-lux py-32 ${className}`}>
+  {title && <h1 class="h-display mb-10 text-4xl md:text-6xl">{title}</h1>}
+  <slot />
+</section>

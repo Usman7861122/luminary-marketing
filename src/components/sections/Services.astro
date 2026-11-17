@@ -1,0 +1,42 @@
+---
+import { services } from '../../data/site';
+---
+<section id="services" class="section-light" aria-labelledby="services-title">
+  <div class="container-lux py-28 md:py-40">
+    <div class="mb-14 grid gap-8 md:grid-cols-[1fr_24rem] md:items-end" data-reveal>
+      <div>
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title" class="h-display mt-6 text-4xl md:text-6xl">Everything your practice needs <span class="text-gold-shine font-medium">to be seen.</span></h2>
+      </div>
+      <p class="lead">One team for strategy, content, ads and your website, so your brand looks and sounds the same everywhere.</p>
+    </div>
+
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+      {services.map((s, i) => (
+        <li data-reveal style={`--d:${(i % 3) * 0.1}s`}>
+          <a href={s.href} class="svc group relative block aspect-[4/5] overflow-hidden rounded-[14px] bg-obsidian text-ivory shadow-[0_30px_60px_-35px_rgba(22,19,14,.7)] sm:aspect-[5/6] lg:aspect-[4/5]">
+            <img src={s.image} alt="" loading="lazy" style={`object-position:${s.pos}`} class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.07]" />
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/35 to-obsidian/5"></div>
+            <span aria-hidden="true" class="pointer-events-none absolute inset-3 rounded-[10px] border border-ivory/0 transition-colors duration-500 group-hover:border-champagne/60"></span>
+            <div class="absolute inset-x-0 bottom-0 p-7 md:p-8">
+              <h3 class="font-display text-2xl font-light leading-tight md:text-[1.7rem]">{s.title}</h3>
+              <div class="svc-text overflow-hidden transition-all duration-500 ease-out">
+                <p class="pt-3 text-[0.92rem] leading-7 text-ivory/80">{s.text}</p>
+              </div>
+              <span class="mt-5 inline-flex items-center gap-2 text-[0.68rem] font-medium uppercase tracking-[0.22em] text-champagne-soft">Learn more
+                <svg class="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  @media (hover: hover) and (min-width: 768px) {
+    .svc-text { max-height: 0; opacity: 0; }
+    .svc:hover .svc-text, .svc:focus-visible .svc-text { max-height: 10rem; opacity: 1; }
+  }
+</style>

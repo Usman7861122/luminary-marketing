@@ -1,0 +1,27 @@
+---
+import ContactForm from '../react/ContactForm';
+import { site } from '../../data/site';
+---
+<section id="contact" class="border-t border-ivory/[0.07] bg-graphite" aria-labelledby="contact-title">
+  <div class="container-lux grid gap-14 py-28 md:py-40 lg:grid-cols-2 lg:gap-24">
+    <div data-reveal="left">
+      <p class="eyebrow">Get in touch</p>
+      <h2 id="contact-title" class="h-display mt-6 text-4xl md:text-6xl">Let us fill <span class="text-gold-shine font-medium">your calendar.</span></h2>
+      <p class="lead mt-7 max-w-md">Tell us about your practice and the procedures you want to grow. We reply within one business day.</p>
+
+      <div class="img-round img-zoom relative mt-10 aspect-[16/10]">
+        <img src="/images/stock/clinic-reception.webp" alt="Elegant clinic reception" loading="lazy" width="1800" height="1200" class="brightness-[.75]" />
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/85 via-transparent to-transparent"></div>
+        <dl class="absolute inset-x-0 bottom-0 grid gap-1 p-6 text-sm text-ivory/85">
+          <div><dt class="sr-only">Phone</dt><dd><a class="hover:text-champagne-soft" href={site.phoneHref}>{site.phone}</a></dd></div>
+          <div><dt class="sr-only">Email</dt><dd><a class="hover:text-champagne-soft" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+          <div><dt class="sr-only">Instagram</dt><dd><a class="hover:text-champagne-soft" href={site.instagramUrl} target="_blank" rel="noopener">@{site.instagram}</a></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div data-reveal="right" style="--d:.15s">
+      <ContactForm client:visible />
+    </div>
+  </div>
+</section>

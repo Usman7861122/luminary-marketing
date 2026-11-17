@@ -1,0 +1,20 @@
+---
+const channels = ['Instagram', 'TikTok', 'Google', 'YouTube', 'Email'];
+---
+<section class="container-lux py-28 md:py-40" aria-labelledby="vis-title">
+  <div class="bv relative img-round min-h-[34rem] bg-obsidian" data-reveal="fade">
+    <img src="/images/stock/model-orbit-v2.webp" alt="Woman with glossy dark hair and red lipstick against a dusty rose background" width="1344" height="752" loading="lazy" class="bv-img absolute inset-y-0 right-0 !h-full !w-full object-[55%_30%] md:object-[52%_28%] md:!w-[66%] [-webkit-mask-image:linear-gradient(to_right,transparent,#000_24%)] [mask-image:linear-gradient(to_right,transparent,#000_24%)]" />
+    <div class="absolute inset-0 bg-gradient-to-r from-obsidian/80 via-obsidian/25 to-transparent max-md:from-obsidian/60 max-md:to-obsidian/30"></div>
+
+    <div class="relative flex min-h-[34rem] items-center p-6 md:p-14">
+      <div class="bv-card max-w-xl rounded-[14px] border border-ivory/15 bg-obsidian/60 p-8 backdrop-blur-xl md:p-12">
+        <p class="eyebrow">Brand visibility</p>
+        <h2 id="vis-title" class="h-display mt-5 text-4xl md:text-5xl">Grow your <span class="text-gold-shine font-medium">brand visibility.</span></h2>
+        <p class="lead mt-6">Be the practice people see first and remember longest. We build a steady presence across the places your future patients already look.</p>
+        <ul class="mt-8 flex flex-wrap gap-3">
+          {channels.map((c) => <li class="chip cursor-default rounded-full border border-ivory/20 px-4 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-ivory/80">{c}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

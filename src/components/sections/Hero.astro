@@ -1,0 +1,32 @@
+---
+import HeroHeadline from '../react/HeroHeadline';
+---
+<section class="relative isolate flex min-h-[100svh] items-end overflow-hidden md:items-center" aria-label="Introduction">
+  <img
+    src="/images/hero.webp"
+    alt="Brittney of Luminary Marketing standing in a bright modern studio"
+    width="1672" height="941"
+    class="hero-zoom absolute inset-0 -z-20 h-full w-full object-cover object-[74%_20%] brightness-[.8] contrast-[1.06] saturate-[.92]"
+    fetchpriority="high"
+  />
+  <!-- left-to-right shade keeps the headline readable and the right side open for her -->
+  <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(10_10_11/.97)_0%,rgb(10_10_11/.9)_32%,rgb(10_10_11/.4)_60%,rgb(10_10_11/.06)_100%)] max-md:bg-[linear-gradient(180deg,rgb(10_10_11/.35)_0%,rgb(10_10_11/.1)_22%,rgb(10_10_11/.82)_52%,rgb(10_10_11/.98)_72%)]"></div>
+  <div class="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-obsidian to-transparent"></div>
+
+  <div class="container-lux pb-16 pt-[52svh] md:pb-28 md:pt-40">
+    <HeroHeadline
+      client:load
+      eyebrow="Marketing for aesthetic and medical practices"
+      lead="Marketing that makes your practice"
+      words={['unforgettable.', 'irresistible.', 'fully booked.']}
+      text="You did not start your practice to spend your days buried in graphics, captions and content planning. We turn your brand vision into a digital presence that converts."
+      primary={{ label: 'Book a strategy call', href: '/#contact' }}
+      secondary={{ label: 'See our work', href: '/#portfolio' }}
+    />
+  </div>
+
+  <a href="#why" class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-[0.65rem] uppercase tracking-[0.3em] text-ivory/60 md:flex" aria-label="Scroll to next section">
+    Scroll
+    <span class="block h-10 w-px bg-gradient-to-b from-champagne to-transparent"></span>
+  </a>
+</section>

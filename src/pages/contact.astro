@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/astro/Section.astro';
+import ContactForm from '../components/react/ContactForm';
+---
+<BaseLayout title="Contact">
+  <Section title="Let's talk">
+    <ContactForm client:visible />
+  </Section>
+</BaseLayout>

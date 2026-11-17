@@ -1,0 +1,31 @@
+---
+const items = [
+  'Ads that reach patients who are ready to book',
+  'Local search that puts you first in your city',
+  'Follow-up that turns inquiries into consultations',
+];
+---
+<section class="border-y border-ivory/[0.07]" aria-labelledby="clients-title">
+  <div class="container-lux grid items-center gap-14 py-28 md:py-36 lg:grid-cols-2 lg:gap-24">
+    <div data-reveal="left">
+      <p class="eyebrow">Patient acquisition</p>
+      <h2 id="clients-title" class="h-display mt-6 text-4xl md:text-6xl">Get more of the <span class="text-gold-shine font-medium">clients you want.</span></h2>
+      <p class="lead mt-7 max-w-lg">Attract people who value your work and are ready to book, not price shoppers. Every campaign is built around the procedures you most want to grow.</p>
+      <ul data-stagger class="mt-9 space-y-5">
+        {items.map((t) => (
+          <li class="tick-hover flex items-start gap-4 text-ivory/85">
+            <svg class="mt-1 h-5 w-5 shrink-0 text-champagne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10" opacity=".5"/><path d="m7.5 12.5 3 3 6-7"/></svg>
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="/#contact" class="btn-lux mt-11">Get more clients
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+
+    <div class="img-round img-zoom aspect-[5/4]" data-reveal style="--d:.15s">
+      <img src="/images/stock/consult-aesthetic.webp" alt="Aesthetic specialist consulting a patient" width="1800" height="1200" loading="lazy" class="object-[40%_50%]" />
+    </div>
+  </div>
+</section>

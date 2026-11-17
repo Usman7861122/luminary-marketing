@@ -1,0 +1,27 @@
+---
+import { site } from '../../data/site';
+import MobileMenu from '../react/MobileMenu';
+---
+<header class="site-header" data-scrolled="false" id="site-header">
+  <div class="container-lux flex h-24 items-center justify-between gap-8">
+    <a href="/" aria-label={`${site.name} home`} class="shrink-0">
+      <img src="/images/lm-logo.png" alt={site.name} width="900" height="572" class="logo-hover h-[72px] w-auto" />
+    </a>
+
+    <nav aria-label="Main" class="hidden items-center gap-10 lg:flex">
+      {site.nav.map((n) => <a href={n.href} class="nav-link">{n.label}</a>)}
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="/#contact" class="btn-lux btn-lux--sm hidden sm:inline-flex">Book a call</a>
+      <MobileMenu client:media="(max-width: 1023px)" nav={site.nav} />
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const onScroll = () => header?.setAttribute('data-scrolled', String(window.scrollY > 40));
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>

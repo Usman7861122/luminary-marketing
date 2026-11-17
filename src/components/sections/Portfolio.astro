@@ -1,0 +1,16 @@
+---
+import DeviceShowcase from '../react/DeviceShowcase';
+import { showcase } from '../../data/site';
+---
+<section id="portfolio" class="border-t border-ivory/[0.07] bg-charcoal" aria-labelledby="portfolio-title">
+  <div class="container-lux py-28 md:py-40">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-6" data-reveal>
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 id="portfolio-title" class="h-display mt-6 text-4xl md:text-6xl">Selected <span class="text-gold-shine font-medium">work.</span></h2>
+      </div>
+      <a href="/work" class="btn-lux btn-lux--sm">View all work</a>
+    </div>
+    <DeviceShowcase client:visible sites={showcase} />
+  </div>
+</section>
