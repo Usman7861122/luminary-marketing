@@ -122,9 +122,11 @@ html.is-loaded .hero-zoom, html.no-loader .hero-zoom { scale: 1.04; animation: h
 /* ---------- Hover polish ---------- */
 .img-zoom img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
 .img-zoom:hover img { transform: scale(1.05); }
-.row-hover { transition: padding-left .5s cubic-bezier(.2,.7,.2,1), background-color .5s; }
-.row-hover h3 { transition: color .4s; }
-.row-hover:hover { padding-left: .9rem; background: linear-gradient(90deg, rgb(217 185 122 / .07), transparent 70%); }
+.row-hover { transition: background-color .5s; }
+.row-hover > * { transition: transform .5s cubic-bezier(.2,.7,.2,1), color .4s; will-change: transform; }
+.row-hover:hover { background: linear-gradient(90deg, rgb(217 185 122 / .07), transparent 70%); }
+.row-hover:hover > * { transform: translate3d(.6rem, 0, 0); }
+.row-hover h3 { transition: color .4s, transform .5s cubic-bezier(.2,.7,.2,1); }
 .row-hover:hover h3 { color: var(--color-champagne-soft); }
 .tick-hover svg { transition: transform .5s cubic-bezier(.2,.7,.2,1), color .3s; }
 .tick-hover:hover svg { transform: scale(1.2) rotate(-6deg); color: var(--color-champagne-soft); }
