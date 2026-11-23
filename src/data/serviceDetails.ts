@@ -5,8 +5,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     "hero": "/images/stock/clinic-hallway.webp",
     "hpos": "50% 50%",
     "p1": [
-      "/images/stock/portrait-calm.webp",
-      "70% 35%"
+      "/images/services/seo.webp",
+      "60% 50%"
     ],
     "p2": [
       "/images/stock/clinic-reception.webp",
