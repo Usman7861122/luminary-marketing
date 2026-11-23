@@ -51,6 +51,18 @@ body {
 .nav-link:hover { color: var(--color-champagne-soft); }
 .nav-link:hover::after { transform: scaleX(1); }
 
+/* ---------- Mega menu (desktop) ---------- */
+.has-mega { position: static; }
+.has-mega > a { position: relative; }
+.has-mega > a::before { content: ""; position: absolute; left: -1.5rem; right: -1.5rem; top: -1.5rem; bottom: -2.6rem; }
+.mega-chev { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+.has-mega:hover .mega-chev, .has-mega:focus-within .mega-chev { transform: rotate(180deg); }
+.mega { position: fixed; inset-inline: 0; top: 6rem; background: rgb(10 10 11 / .97); backdrop-filter: blur(22px); border-top: 1px solid rgb(244 239 230 / .08); border-bottom: 1px solid rgb(244 239 230 / .08); box-shadow: 0 40px 80px -30px rgb(0 0 0 / .8); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .35s ease, transform .45s cubic-bezier(.2,.7,.2,1), visibility 0s linear .35s; }
+.has-mega:hover .mega, .has-mega:focus-within .mega { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.mega-item { transition: background-color .35s; }
+.mega-item:hover, .mega-item:focus-visible { background: rgb(217 185 122 / .07); }
+@media (prefers-reduced-motion: reduce) { .mega { transition: none; transform: none; } }
+
 /* ---------- Sleek bordered button: animated border + glare ---------- */
 @property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 @keyframes spin-border { to { --a: 360deg; } }

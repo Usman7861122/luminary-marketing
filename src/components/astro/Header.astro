@@ -1,6 +1,8 @@
 ---
 import { site } from '../../data/site';
 import MobileMenu from '../react/MobileMenu';
+import { serviceGroups, serviceShort } from '../../data/services';
+const megaLinks = serviceGroups.map((g, i) => ({ n: g.n, title: serviceShort[i], text: g.text, href: g.href }));
 ---
 <header class="site-header" data-scrolled="false" id="site-header">
   <div class="container-lux flex h-24 items-center justify-between gap-8">
@@ -9,12 +11,47 @@ import MobileMenu from '../react/MobileMenu';
     </a>
 
     <nav aria-label="Main" class="hidden items-center gap-10 lg:flex">
-      {site.nav.map((n) => <a href={n.href} class="nav-link">{n.label}</a>)}
+      {site.nav.map((n) => n.href === '/services' ? (
+        <div class="has-mega">
+          <a href={n.href} class="nav-link inline-flex items-center gap-2" aria-haspopup="true">
+            {n.label}
+            <svg class="mega-chev h-2.5 w-2.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 4.5l4 4 4-4"/></svg>
+          </a>
+          <div class="mega" role="region" aria-label="Services menu">
+            <div class="container-lux grid gap-12 py-12 lg:grid-cols-[1fr_19rem]">
+              <ul class="grid grid-cols-2 gap-x-10 gap-y-1">
+                {megaLinks.map((m) => (
+                  <li>
+                    <a href={m.href} class="mega-item group grid grid-cols-[2.2rem_1fr] gap-x-2 rounded-[10px] px-3 py-3.5">
+                      <span class="pt-1 font-display text-xs tracking-[0.2em] text-champagne/80">{m.n}</span>
+                      <span>
+                        <span class="block font-display text-[1.05rem] font-normal leading-snug text-ivory transition-colors group-hover:text-champagne-soft">{m.title}</span>
+                        <span class="mt-1 block text-[0.8rem] leading-5 text-ivory/55">{m.text}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <aside class="flex flex-col justify-between rounded-[14px] border border-ivory/10 bg-ivory/[.03] p-7">
+                <div>
+                  <p class="eyebrow">The Luminary Difference</p>
+                  <p class="mt-4 font-display text-2xl font-light leading-snug text-ivory">More than marketing. We understand the business behind it.</p>
+                  <p class="mt-3 text-[0.82rem] leading-6 text-ivory/55">19 years in medical aesthetics, sales and practice leadership.</p>
+                </div>
+                <div class="mt-8 flex flex-col items-start gap-4">
+                  <a href="/services" class="link-lux">View all services</a>
+                  <a href="/#contact" class="btn-lux btn-lux--sm">Book a strategy call</a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      ) : <a href={n.href} class="nav-link">{n.label}</a>)}
     </nav>
 
     <div class="flex items-center gap-4">
       <a href="/#contact" class="btn-lux btn-lux--sm hidden sm:inline-flex">Book a call</a>
-      <MobileMenu client:media="(max-width: 1023px)" nav={site.nav} />
+      <MobileMenu client:media="(max-width: 1023px)" nav={site.nav} services={megaLinks.map((m) => ({ label: m.title, href: m.href }))} />
     </div>
   </div>
 </header>
@@ -24,4 +61,9 @@ import MobileMenu from '../react/MobileMenu';
   const onScroll = () => header?.setAttribute('data-scrolled', String(window.scrollY > 40));
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Escape closes the mega menu even while a link inside still has focus.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') (document.activeElement as HTMLElement | null)?.blur();
+  });
 </script>

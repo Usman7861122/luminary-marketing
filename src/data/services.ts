@@ -305,3 +305,5 @@ export const serviceGroups = [
     ]
   }
 ];
+
+export const serviceShort = ['Executive strategy and growth','Sales and patient conversion','Social media and content','Paid advertising and leads','Medical aesthetics and devices','Brand and digital presence','Events and community','Reporting and accountability'];
