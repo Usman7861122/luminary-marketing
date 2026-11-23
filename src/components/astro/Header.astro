@@ -40,7 +40,7 @@ const megaLinks = serviceGroups.map((g, i) => ({ n: g.n, title: serviceShort[i],
                 </div>
                 <div class="mt-8 flex flex-col items-start gap-4">
                   <a href="/services" class="link-lux">View all services</a>
-                  <a href="/#contact" class="btn-lux btn-lux--sm">Book a strategy call</a>
+                  <a href="/contact" class="btn-lux btn-lux--sm">Book a strategy call</a>
                 </div>
               </aside>
             </div>
@@ -50,7 +50,7 @@ const megaLinks = serviceGroups.map((g, i) => ({ n: g.n, title: serviceShort[i],
     </nav>
 
     <div class="flex items-center gap-4">
-      <a href="/#contact" class="btn-lux btn-lux--sm hidden sm:inline-flex">Book a call</a>
+      <a href="/contact" class="btn-lux btn-lux--sm hidden sm:inline-flex">Book a call</a>
       <MobileMenu client:media="(max-width: 1023px)" nav={site.nav} services={megaLinks.map((m) => ({ label: m.title, href: m.href }))} />
     </div>
   </div>

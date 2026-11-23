@@ -1,10 +1,97 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/astro/Section.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/react/ContactForm';
+import { site } from '../data/site';
+
+const ways = [
+  { label: 'Call', value: site.phone, href: site.phoneHref, icon: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z' },
+  { label: 'Email', value: site.email, href: `mailto:${site.email}`, icon: 'M3 6h18v12H3zM3 7l9 7 9-7' },
+  { label: 'Instagram', value: `@${site.instagram}`, href: site.instagramUrl, icon: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm5 5.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM17.2 6.8h.01' },
+];
+
+const next = [
+  { title: 'We read your message', text: 'Brittany or a senior member of the team reads it the same day we get it.' },
+  { title: 'We reply within one business day', text: 'You get a short answer and a time for a call that suits you.' },
+  { title: 'You get a clear plan', text: 'On the call we look at where your marketing and follow-up can bring in more booked patients.' },
+];
 ---
-<BaseLayout title="Contact">
-  <Section title="Let's talk">
-    <ContactForm client:visible />
-  </Section>
-</BaseLayout>
+<PageLayout
+  title="Contact | Luminary Marketing"
+  heading="Let's talk about your practice"
+  eyebrow="Contact"
+  lede="Tell us what you want to grow. We reply within one business day."
+  description="Contact Luminary Marketing Agency by phone, email, Instagram or the form. We reply within one business day."
+  image="/images/home-2-poster.webp"
+  imageAlt="Brittany of Luminary Marketing walking through a sunny city street"
+  position="50% 18%"
+  flip
+>
+  <section class="container-lux py-24 md:py-36" aria-labelledby="contact-main">
+    <div class="grid gap-14 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-5" data-reveal="left">
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="contact-main" class="h-display mt-6 text-4xl md:text-5xl">Pick the way <span class="text-gold-shine font-medium">that suits you.</span></h2>
+        <p class="lead mt-6 max-w-md">Prefer to write it all down? Use the form. Prefer to talk? Call or message us.</p>
+        <ul class="mt-10 space-y-4">
+          {ways.map((w) => (
+            <li>
+              <a href={w.href} target={w.label === 'Instagram' ? '_blank' : undefined} rel={w.label === 'Instagram' ? 'noopener' : undefined} class="way group flex items-center gap-5 rounded-[14px] border border-ivory/12 bg-graphite/50 p-5">
+                <span class="way-ic grid h-12 w-12 shrink-0 place-items-center rounded-full border border-champagne/40 text-champagne">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={w.icon} /></svg>
+                </span>
+                <span class="min-w-0">
+                  <span class="block text-[0.68rem] uppercase tracking-[0.24em] text-champagne">{w.label}</span>
+                  <span class="way-v mt-1 block break-words text-[1rem] text-ivory">{w.value}</span>
+                </span>
+                <svg viewBox="0 0 24 24" class="way-arrow ml-auto h-5 w-5 shrink-0 text-champagne" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-7" data-reveal="right" style="--d:.12s">
+        <div class="rounded-[14px] border border-ivory/12 bg-graphite/60 p-7 md:p-10">
+          <h3 class="font-display text-2xl font-light text-ivory">Send us a message</h3>
+          <p class="mt-2 text-sm leading-6 text-ivory/55">Please do not include patient names or medical details.</p>
+          <div class="mt-8"><ContactForm client:visible /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" aria-labelledby="contact-next">
+    <div class="container-lux py-24 md:py-32">
+      <div class="max-w-3xl" data-reveal>
+        <p class="eyebrow">What happens next</p>
+        <h2 id="contact-next" class="h-display mt-6 text-4xl md:text-5xl">Simple, and <span class="text-gold-shine font-medium">no pressure.</span></h2>
+      </div>
+      <ol class="mt-14 grid gap-0 md:grid-cols-3" data-stagger>
+        {next.map((n, i) => (
+          <li class="next-step relative border-t border-ink/15 py-8 md:pr-10">
+            <span class="next-dot" aria-hidden="true"></span>
+            <p class="text-[0.7rem] uppercase tracking-[0.26em] text-gold-deep">Step {i + 1}</p>
+            <h3 class="mt-3 font-display text-[1.45rem] font-normal text-ink">{n.title}</h3>
+            <p class="mt-3 text-[0.98rem] leading-7 text-ink/65">{n.text}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-12 flex flex-wrap items-center gap-6" data-reveal>
+        <a href={site.phoneHref} class="btn-lux inline-flex">Call {site.phone}</a>
+        <a href="/difference" class="link-lux text-ink">Why Luminary</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .way { transition: border-color .4s, background-color .4s, transform .5s cubic-bezier(.2,.7,.2,1); }
+  .way:hover { border-color: rgb(217 185 122 / .6); background: rgb(217 185 122 / .07); transform: translateX(6px); }
+  .way-ic { transition: background-color .4s, color .4s, box-shadow .4s; }
+  .way:hover .way-ic { background: var(--color-champagne); color: #0a0a0b; box-shadow: 0 0 0 5px rgb(217 185 122 / .18); }
+  .way-arrow { opacity: 0; transform: translateX(-6px); transition: opacity .4s, transform .5s cubic-bezier(.2,.7,.2,1); }
+  .way:hover .way-arrow, .way:focus-visible .way-arrow { opacity: 1; transform: none; }
+  .next-dot { position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 9999px; background: var(--color-gold-deep); box-shadow: 0 0 0 4px rgb(181 138 62 / .15); transition: transform .4s, box-shadow .4s; }
+  .next-step:hover .next-dot { transform: scale(1.5); box-shadow: 0 0 0 6px rgb(181 138 62 / .22); }
+  @media (max-width: 767px) { .next-step { padding-left: 1.5rem; border-top: 0; border-left: 1px solid rgb(22 19 14 / .15); } .next-dot { top: 2.2rem; left: -5px; } }
+</style>

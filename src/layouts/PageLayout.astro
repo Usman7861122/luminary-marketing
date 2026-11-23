@@ -1,10 +1,10 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import PageHero from '../components/astro/PageHero.astro';
-interface Props { title: string; heading?: string; eyebrow?: string; lede?: string; description?: string; image: string; imageAlt?: string; position?: string; }
-const { title, heading, eyebrow, lede, description, image, imageAlt, position } = Astro.props;
+interface Props { title: string; heading?: string; eyebrow?: string; lede?: string; description?: string; image: string; imageAlt?: string; position?: string; flip?: boolean; }
+const { title, heading, eyebrow, lede, description, image, imageAlt, position, flip } = Astro.props;
 ---
 <BaseLayout title={title} description={description}>
-  <PageHero title={heading ?? title} eyebrow={eyebrow} lede={lede} image={image} imageAlt={imageAlt} position={position} />
+  <PageHero title={heading ?? title} eyebrow={eyebrow} lede={lede} image={image} imageAlt={imageAlt} position={position} flip={flip} />
   <slot />
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import { site } from '../../data/site';
+import { legalLinks } from '../../data/legal';
 ---
 <footer class="border-t border-ivory/[0.08] bg-obsidian">
   <div class="container-lux grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
@@ -23,8 +24,15 @@ import { site } from '../../data/site';
     </div>
   </div>
   <div class="border-t border-ivory/[0.06]">
-    <p class="container-lux py-6 text-xs text-ivory/45">
-      <a href="/privacy" class="hover:text-ivory/70">Privacy Policy</a> &nbsp;|&nbsp; © {new Date().getFullYear()} All Rights Reserved by {site.name} Agency.
-    </p>
+    <div class="container-lux flex flex-col gap-4 py-6 text-xs text-ivory/45 md:flex-row md:items-center md:justify-between">
+      <p>© {new Date().getFullYear()} All Rights Reserved by {site.name} Agency.</p>
+      <ul class="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Legal">
+        {legalLinks.map((l) => <li><a href={l.href} class="transition-colors hover:text-ivory/80">{l.label}</a></li>)}
+        <li><button type="button" data-open-cookies class="transition-colors hover:text-ivory/80">Cookie settings</button></li>
+      </ul>
+    </div>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('[data-open-cookies]').forEach((b) => b.addEventListener('click', () => window.dispatchEvent(new CustomEvent('lm:open-cookies'))));
+</script>

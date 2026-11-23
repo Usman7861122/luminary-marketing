@@ -76,7 +76,7 @@ export default function MobileMenu({ nav, services = [] }: Props) {
                 )}
               </motion.div>
             ))}
-            <a href="/#contact" onClick={() => setOpen(false)} className="btn-lux mt-6 self-start">Book a call</a>
+            <a href="/contact" onClick={() => setOpen(false)} className="btn-lux mt-6 self-start">Book a call</a>
           </motion.nav>
         )}
       </AnimatePresence>

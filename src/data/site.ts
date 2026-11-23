@@ -13,7 +13,7 @@ export const site = {
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
     { label: 'The Luminary Difference', href: '/difference' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Contact', href: '/contact' },
   ],
 };
 
