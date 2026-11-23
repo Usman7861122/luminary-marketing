@@ -2,15 +2,15 @@
 export type ServiceDetail = { hero: string; hpos: string; p1: [string,string]; p2: [string,string]; lede: string; intro: string[]; bestFor: string[]; signs: string[]; benefits: [string,string][]; steps: [string,string][]; faqs: [string,string][] };
 export const serviceDetails: Record<string, ServiceDetail> = {
   "exec-strategy": {
-    "hero": "/images/stock/clinic-hallway.webp",
-    "hpos": "50% 50%",
+    "hero": "/images/photos/strategy-meeting.webp",
+    "hpos": "50% 40%",
     "p1": [
-      "/images/services/seo.webp",
-      "60% 50%"
+      "/images/photos/strategy-sticky-notes.webp",
+      "50% 40%"
     ],
     "p2": [
-      "/images/stock/clinic-reception.webp",
-      "50% 50%"
+      "/images/photos/exec-dashboard-present.webp",
+      "50% 40%"
     ],
     "lede": "Senior sales and marketing leadership for your practice, without the cost of a full-time director.",
     "intro": [
@@ -81,15 +81,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "sales": {
-    "hero": "/images/stock/doctor-consult.webp",
-    "hpos": "40% 40%",
+    "hero": "/images/photos/front-desk.webp",
+    "hpos": "50% 50%",
     "p1": [
-      "/images/stock/clinic-stairs.webp",
-      "50% 50%"
+      "/images/photos/surgeon-consult.webp",
+      "50% 40%"
     ],
     "p2": [
-      "/images/stock/consult-aesthetic.webp",
-      "55% 30%"
+      "/images/stock/clinic-stairs.webp",
+      "50% 50%"
     ],
     "lede": "Train your team to handle inquiries, book consultations and convert them into patients.",
     "intro": [
@@ -160,15 +160,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "social": {
-    "hero": "/images/stock/creator-studio.webp",
-    "hpos": "50% 40%",
+    "hero": "/images/photos/creator-ring-light.webp",
+    "hpos": "60% 50%",
     "p1": [
-      "/images/services/social.webp",
-      "55% 30%"
+      "/images/creatives/bts-flatlay.webp",
+      "50% 50%"
     ],
     "p2": [
-      "/images/creatives/bts-flatlay.webp",
-      "50% 45%"
+      "/images/stock/creator-studio.webp",
+      "50% 50%"
     ],
     "lede": "Strategy, filming, editing and posting that make your practice look as premium as it is.",
     "intro": [
@@ -239,15 +239,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "ads": {
-    "hero": "/images/services/ads.webp",
-    "hpos": "50% 50%",
+    "hero": "/images/photos/analytics-dark.webp",
+    "hpos": "50% 40%",
     "p1": [
-      "/images/services/seo.webp",
-      "55% 50%"
+      "/images/services/content.webp",
+      "50% 40%"
     ],
     "p2": [
       "/images/stock/brand-visibility.webp",
-      "50% 30%"
+      "50% 50%"
     ],
     "lede": "Meta and Google campaigns built to bring in qualified patient inquiries.",
     "intro": [
@@ -318,15 +318,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "device": {
-    "hero": "/images/stock/consult-aesthetic.webp",
-    "hpos": "55% 30%",
+    "hero": "/images/photos/laser-device.webp",
+    "hpos": "50% 40%",
     "p1": [
-      "/images/services/content.webp",
-      "50% 35%"
+      "/images/photos/spa-facial-glow.webp",
+      "50% 40%"
     ],
     "p2": [
-      "/images/stock/clinic-white.webp",
-      "50% 50%"
+      "/images/stock/portrait-glamour.webp",
+      "50% 40%"
     ],
     "lede": "Launch new devices, treatments and procedures with messaging that fills your schedule.",
     "intro": [
@@ -397,15 +397,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "brand": {
-    "hero": "/images/services/web.webp",
+    "hero": "/images/photos/brand-moodboard.webp",
     "hpos": "50% 50%",
     "p1": [
-      "/images/stock/portrait-black-dress.webp",
-      "45% 30%"
+      "/images/creatives/bts-laptop.webp",
+      "50% 50%"
     ],
     "p2": [
-      "/images/services/brand.webp",
-      "60% 40%"
+      "/images/services/seo.webp",
+      "60% 50%"
     ],
     "lede": "A clear brand, a high-converting website and a strong local presence working together.",
     "intro": [
@@ -476,15 +476,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "events": {
-    "hero": "/images/stock/portrait-glamour.webp",
-    "hpos": "50% 35%",
+    "hero": "/images/photos/event-dinner.webp",
+    "hpos": "50% 50%",
     "p1": [
-      "/images/stock/clinic-reception.webp",
-      "60% 50%"
+      "/images/stock/portrait-black-dress.webp",
+      "50% 30%"
     ],
     "p2": [
-      "/images/creatives/bts-laptop.webp",
-      "50% 40%"
+      "/images/stock/clinic-white.webp",
+      "50% 50%"
     ],
     "lede": "Influencers, models, events and local partnerships that grow your name in the community.",
     "intro": [
@@ -555,15 +555,15 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ]
   },
   "reporting": {
-    "hero": "/images/services/seo.webp",
-    "hpos": "55% 50%",
+    "hero": "/images/photos/team-sticky-clinic.webp",
+    "hpos": "50% 40%",
     "p1": [
-      "/images/services/web.webp",
+      "/images/stock/clinic-reception.webp",
       "50% 50%"
     ],
     "p2": [
-      "/images/stock/clinic-white.webp",
-      "50% 50%"
+      "/images/services/seo.webp",
+      "60% 50%"
     ],
     "lede": "See what is working, where patients drop off and what to do next.",
     "intro": [

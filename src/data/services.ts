@@ -273,8 +273,8 @@ export const serviceGroups = [
     "slug": "reporting",
     "n": "08",
     "title": "Reporting, Performance and Accountability",
-    "image": "/images/stock/clinic-white.webp",
-    "pos": "50% 50%",
+    "image": "/images/photos/team-report.webp",
+    "pos": "60% 40%",
     "text": "Clear reporting from lead to consultation to patient, so you see exactly where business is won or lost.",
     "href": "/services/reporting",
     "items": [

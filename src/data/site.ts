@@ -28,11 +28,11 @@ export const services = [
 
 // PLACEHOLDER project names. Replace with real client work.
 export const projects = [
-  { slug: 'surgery-launch', title: 'Plastic surgery launch', tag: 'Campaign', image: '/images/stock/clinic-hallway.webp', span: 'lg:col-span-7', ratio: 'aspect-[16/10]' },
-  { slug: 'medspa-social', title: 'Med spa social growth', tag: 'Social media', image: '/images/stock/portrait-black-dress.webp', span: 'lg:col-span-5', ratio: 'aspect-[16/10] lg:aspect-auto' },
-  { slug: 'clinic-rebrand', title: 'Clinic rebrand', tag: 'Branding', image: '/images/stock/clinic-reception.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
-  { slug: 'injectables-ads', title: 'Injectables ad campaign', tag: 'Paid ads', image: '/images/stock/portrait-glamour.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
-  { slug: 'derm-seo', title: 'Dermatology local SEO', tag: 'SEO', image: '/images/stock/clinic-white.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
+  { slug: 'surgery-launch', title: 'Plastic surgery launch', tag: 'Campaign', image: '/images/photos/consult-room.webp', span: 'lg:col-span-7', ratio: 'aspect-[16/10]' },
+  { slug: 'medspa-social', title: 'Med spa social growth', tag: 'Social media', image: '/images/photos/ring-light-beauty.webp', span: 'lg:col-span-5', ratio: 'aspect-[16/10] lg:aspect-auto' },
+  { slug: 'clinic-rebrand', title: 'Clinic rebrand', tag: 'Branding', image: '/images/photos/spa-candles.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
+  { slug: 'injectables-ads', title: 'Injectables ad campaign', tag: 'Paid ads', image: '/images/stock/portrait-calm.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
+  { slug: 'derm-seo', title: 'Dermatology local SEO', tag: 'SEO', image: '/images/photos/derm-exam.webp', span: 'lg:col-span-4', ratio: 'aspect-[4/3]' },
 ];
 
 // PLACEHOLDER numbers. Replace with real figures.
@@ -57,8 +57,8 @@ export const instagramTiles = [
 
 // PLACEHOLDER posts. Replace with real articles.
 export const posts = [
-  { slug: 'fill-your-consult-calendar', category: 'Strategy', title: 'How to fill your consultation calendar without discounting', date: 'Nov 2026', read: '6 min read', image: '/images/stock/doctor-consult.webp' },
-  { slug: 'reels-for-surgeons', category: 'Social media', title: 'What plastic surgeons should post on Instagram Reels', date: 'Oct 2026', read: '5 min read', image: '/images/stock/creator-studio.webp' },
+  { slug: 'fill-your-consult-calendar', category: 'Strategy', title: 'How to fill your consultation calendar without discounting', date: 'Nov 2026', read: '6 min read', image: '/images/photos/appointment-planner.webp' },
+  { slug: 'reels-for-surgeons', category: 'Social media', title: 'What plastic surgeons should post on Instagram Reels', date: 'Oct 2026', read: '5 min read', image: '/images/photos/reels-editing.webp' },
   { slug: 'med-spa-local-seo', category: 'SEO', title: 'A local SEO checklist for med spas', date: 'Oct 2026', read: '7 min read', image: '/images/stock/clinic-white.webp' },
 ];
 

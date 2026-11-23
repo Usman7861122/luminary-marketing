@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { serviceGroups, serviceShort } from '../data/services';
+import { serviceDetails } from '../data/serviceDetails';
 ---
 <PageLayout
   title="Services | Luminary Marketing"
@@ -8,7 +9,7 @@ import { serviceGroups, serviceShort } from '../data/services';
   eyebrow="Our services"
   lede="We focus on the whole process, from brand awareness and patient acquisition to staff performance, lead management, consultation bookings and conversions."
   description="Eight service areas for medical aesthetics and wellness practices: strategy, sales, content, paid ads, devices, brand, events and reporting."
-  image="/images/stock/clinic-reception.webp"
+  image="/images/photos/strategy-sticky-notes.webp"
   imageAlt=""
   position="50% 45%"
 >
@@ -39,11 +40,12 @@ import { serviceGroups, serviceShort } from '../data/services';
 
   {serviceGroups.map((g, k) => {
     const v = k % 4;
+    const d = serviceDetails[g.slug];
     return (
       <>
         {v === 0 && (
           <section id={g.slug} class="relative isolate scroll-mt-20 overflow-hidden" aria-labelledby={`${g.slug}-t`}>
-            <div class="fx-bg absolute inset-0 -z-20" style={`background-image:url('${g.image}');background-position:${g.pos}`} aria-hidden="true"></div>
+            <div class="fx-bg absolute inset-0 -z-20" style={`background-image:url('${d.p2[0]}');background-position:${d.p2[1]}`} aria-hidden="true"></div>
             <div class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(10_10_11/.93),rgb(10_10_11/.8)_50%,rgb(10_10_11/.94))]" aria-hidden="true"></div>
             <div class="container-lux py-24 md:py-32">
               <div class="max-w-2xl" data-reveal>
@@ -70,7 +72,7 @@ import { serviceGroups, serviceShort } from '../data/services';
               <div class="lg:col-span-5">
                 <div class="lg:sticky lg:top-28" data-reveal="left">
                   <div class="img-round aspect-[4/5] overflow-hidden">
-                    <img src={g.image} alt="" loading="lazy" style={`object-position:${g.pos}`} class="img-zoom h-full w-full object-cover" />
+                    <img src={d.p1[0]} alt="" loading="lazy" style={`object-position:${d.p1[1]}`} class="img-zoom h-full w-full object-cover" />
                   </div>
                   <p class="mt-8 font-display text-sm tracking-[0.3em] text-champagne">{g.n}</p>
                   <h2 id={`${g.slug}-t`} class="h-display mt-3 text-3xl md:text-4xl">{g.title}</h2>
@@ -101,7 +103,7 @@ import { serviceGroups, serviceShort } from '../data/services';
                   <a href={g.href} class="link-lux mt-7 inline-block">View details</a>
                 </div>
                 <div class="img-round hidden aspect-[16/10] overflow-hidden lg:col-span-5 lg:block">
-                  <img src={g.image} alt="" loading="lazy" style={`object-position:${g.pos}`} class="img-zoom h-full w-full object-cover" />
+                  <img src={d.p1[0]} alt="" loading="lazy" style={`object-position:${d.p1[1]}`} class="img-zoom h-full w-full object-cover" />
                 </div>
               </div>
               <ul class="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
