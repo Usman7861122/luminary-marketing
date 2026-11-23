@@ -22,6 +22,7 @@ const pill = ['Executive strategy','Sales and conversion','Social and content','
           <p class="font-display text-sm tracking-[0.3em] text-champagne">{g.n}</p>
           <h2 id={`${g.slug}-t`} class="h-display mt-4 text-3xl md:text-4xl">{g.title}</h2>
           <p class="mt-5 text-[0.95rem] leading-7 text-ivory/65">{g.text}</p>
+          <a href={g.href} class="link-lux mt-6 inline-block">View details</a>
         </div>
         <ul class="divide-y divide-ivory/10 border-y border-ivory/10 lg:col-span-8">
           {g.items.map(([name, text]) => (

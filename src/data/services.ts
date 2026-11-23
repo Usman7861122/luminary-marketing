@@ -7,7 +7,7 @@ export const serviceGroups = [
     "image": "/images/services/brand.webp",
     "pos": "62% 30%",
     "text": "Executive-level guidance and growth plans built around your practice, without hiring a full-time director.",
-    "href": "/services#exec-strategy",
+    "href": "/services/exec-strategy",
     "items": [
       [
         "Fractional Director of Sales & Marketing",
@@ -42,7 +42,7 @@ export const serviceGroups = [
     "image": "/images/stock/doctor-consult.webp",
     "pos": "50% 35%",
     "text": "Train your front desk and coordinators, fix your phone process and turn inquiries into booked consultations.",
-    "href": "/services#sales",
+    "href": "/services/sales",
     "items": [
       [
         "Front Desk & Patient Coordinator Sales Training",
@@ -89,7 +89,7 @@ export const serviceGroups = [
     "image": "/images/services/social.webp",
     "pos": "50% 30%",
     "text": "Strategy, on-site filming, reels and personal branding for your providers across every platform.",
-    "href": "/services#social",
+    "href": "/services/social",
     "items": [
       [
         "Full-Service Social Media Management",
@@ -132,7 +132,7 @@ export const serviceGroups = [
     "image": "/images/services/ads.webp",
     "pos": "50% 50%",
     "text": "Meta and Google campaigns, ad creative and landing pages that bring in qualified patient inquiries.",
-    "href": "/services#ads",
+    "href": "/services/ads",
     "items": [
       [
         "Meta Advertising Management",
@@ -167,7 +167,7 @@ export const serviceGroups = [
     "image": "/images/stock/consult-aesthetic.webp",
     "pos": "50% 30%",
     "text": "Launch campaigns for new devices, treatments and procedures, backed by real medical device sales insight.",
-    "href": "/services#device",
+    "href": "/services/device",
     "items": [
       [
         "Medical Device Launch Marketing",
@@ -202,7 +202,7 @@ export const serviceGroups = [
     "image": "/images/services/web.webp",
     "pos": "50% 40%",
     "text": "Brand, website, Google profile, reviews, email and SMS working together as one digital presence.",
-    "href": "/services#brand",
+    "href": "/services/brand",
     "items": [
       [
         "Brand Identity & Positioning",
@@ -241,7 +241,7 @@ export const serviceGroups = [
     "image": "/images/stock/clinic-hallway.webp",
     "pos": "50% 50%",
     "text": "Influencers, models, events and local partnerships that grow your name in your community.",
-    "href": "/services#events",
+    "href": "/services/events",
     "items": [
       [
         "Influencer Recruitment & Collaboration Management",
@@ -276,7 +276,7 @@ export const serviceGroups = [
     "image": "/images/stock/clinic-white.webp",
     "pos": "50% 50%",
     "text": "Clear reporting from lead to consultation to patient, so you see exactly where business is won or lost.",
-    "href": "/services#reporting",
+    "href": "/services/reporting",
     "items": [
       [
         "Marketing Performance Analysis",
