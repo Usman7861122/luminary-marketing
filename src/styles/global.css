@@ -141,8 +141,12 @@ html.is-loaded .hero-zoom, html.no-loader .hero-zoom { scale: 1.04; animation: h
 .row-hover:hover > * { transform: translate3d(.6rem, 0, 0); }
 .row-hover h3 { transition: color .4s, transform .5s cubic-bezier(.2,.7,.2,1); }
 .row-hover:hover h3 { color: var(--color-champagne-soft); }
-.tick-hover svg { transition: transform .5s cubic-bezier(.2,.7,.2,1), color .3s; }
-.tick-hover:hover svg { transform: scale(1.2) rotate(-6deg); color: var(--color-champagne-soft); }
+.tick-hover { cursor: default; }
+.tick-hover svg { transition: transform .5s cubic-bezier(.2,.7,.2,1), color .3s, background-color .3s, box-shadow .4s; border-radius: 9999px; }
+.tick-hover > :not(svg) { transition: transform .5s cubic-bezier(.2,.7,.2,1), color .3s; }
+.tick-hover:hover svg { transform: scale(1.35) rotate(-8deg); color: #0a0a0b; background: var(--color-champagne); box-shadow: 0 0 0 4px rgb(217 185 122 / .18); }
+.tick-hover:hover > :not(svg) { transform: translateX(6px); color: var(--color-ivory); }
+@media (prefers-reduced-motion: reduce) { .tick-hover:hover svg, .tick-hover:hover > :not(svg) { transform: none; } }
 .chip { transition: border-color .4s, color .4s, background-color .4s, transform .4s; }
 .chip:hover { border-color: var(--color-champagne); color: var(--color-champagne-soft); background: rgb(217 185 122 / .08); transform: translateY(-2px); }
 .foot-link { position: relative; display: inline-block; }
