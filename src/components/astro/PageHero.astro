@@ -1,0 +1,14 @@
+---
+interface Props { title: string; eyebrow?: string; lede?: string; image: string; imageAlt?: string; position?: string; }
+const { title, eyebrow, lede, image, imageAlt = '', position = '50% 30%' } = Astro.props;
+---
+<section class="relative isolate flex min-h-[68svh] items-end overflow-hidden bg-obsidian md:min-h-[72svh] md:items-center" aria-labelledby="page-title">
+  <img src={image} alt={imageAlt} width="1536" height="1024" fetchpriority="high" style={`object-position:${position}`} class="absolute inset-0 -z-20 h-full w-full object-cover brightness-[.82] contrast-[1.05]" />
+  <div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(10_10_11/.96)_0%,rgb(10_10_11/.86)_34%,rgb(10_10_11/.3)_66%,rgb(10_10_11/.05)_100%)] max-md:bg-[linear-gradient(180deg,rgb(10_10_11/.55)_0%,rgb(10_10_11/.4)_30%,rgb(10_10_11/.92)_75%)]"></div>
+  <div class="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-obsidian to-transparent"></div>
+  <div class="container-lux pb-16 pt-40 md:pb-24 md:pt-44" data-reveal>
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1 id="page-title" class="h-display mt-6 max-w-3xl text-5xl md:text-7xl">{title}</h1>
+    {lede && <p class="lead mt-7 max-w-xl">{lede}</p>}
+  </div>
+</section>

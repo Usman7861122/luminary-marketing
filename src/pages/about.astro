@@ -1,30 +1,102 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const credentials = [
+  { big: '19', label: 'Years in medical aesthetics' },
+  { big: 'Plastic surgery', label: 'Hands-on practice experience' },
+  { big: 'Medical device sales', label: 'Positioning aesthetic technology' },
+  { big: 'Sales and marketing leadership', label: 'Director level' },
+];
+const matters = [
+  { title: 'From lead to paying patient', text: 'Brittany knows the whole business, from generating leads to converting those leads into paying patients.' },
+  { title: 'What happens after the inquiry', text: 'Front desk performance, phone inquiries, patient coordinators, consultation bookings and follow-up all decide whether marketing pays off. She has led teams through every one of them.' },
+  { title: 'Marketing with sales leadership', text: 'Luminary combines creative marketing with real-world sales leadership and medical industry experience, so strategy and conversion work as one.' },
+];
+const clients = ['Plastic surgeons', 'Med spas', 'Wellness businesses', 'Established medical practices'];
 ---
-<BaseLayout title="About | Luminary Marketing">
-  <section class="container-lux pb-28 pt-36 md:pb-40 md:pt-44" aria-labelledby="about-title">
+<PageLayout
+  title="About | Luminary Marketing"
+  heading="Meet Brittany Garabedian."
+  eyebrow="About Luminary"
+  lede="19 years inside plastic surgery and medical aesthetics, now helping practices turn attention into booked patients."
+  description="Brittany Garabedian brings 19 years of medical aesthetics, medical device sales and practice leadership to Luminary Marketing Agency."
+  image="/images/about-hero.webp"
+  imageAlt="Brittany Garabedian standing at the reception desk of a modern aesthetic practice"
+  position="60% 30%"
+>
+  <section class="container-lux py-24 md:py-36" aria-labelledby="story-title">
     <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
-      <div class="lg:col-span-5" data-reveal="left">
-        <div class="img-round img-zoom aspect-[4/5]">
-          <img src="/images/brittney-portrait.webp" alt="Brittany Garabedian, founder of Luminary Marketing" width="1000" height="1500" class="object-[50%_20%]" />
-        </div>
-      </div>
-      <div class="lg:col-span-7" data-reveal="right" style="--d:.12s">
-        <p class="eyebrow">About us</p>
-        <h1 id="about-title" class="h-display mt-6 text-4xl md:text-6xl">Brittany Garabedian. <span class="text-gold-shine font-medium">19 years inside the industry.</span></h1>
+      <div class="lg:col-span-6" data-reveal="left">
+        <p class="eyebrow">Her story</p>
+        <h2 id="story-title" class="h-display mt-6 text-4xl md:text-5xl">More than marketing. <span class="text-gold-shine font-medium">We understand the business behind it.</span></h2>
         <div class="mt-8 max-w-xl space-y-5 text-[1.02rem] leading-8 text-ivory/70">
           <p>Brittany's career spans plastic surgery, medical aesthetics, medical device sales, practice management and sales conversion, including leadership as a Director of Sales and Marketing.</p>
-          <p>She has managed sales, marketing, teams and the daily operations of a practice. That is why Luminary looks past the lead and at everything that happens after it: front desk performance, phone inquiries, consultation bookings, follow-up and patient conversions.</p>
-          <p>Luminary is a full-service marketing, sales and practice growth partner for plastic surgeons, med spas, wellness businesses and established medical practices.</p>
+          <p>She has managed sales, marketing, teams and the daily operations of a practice. That experience is why Luminary looks past the lead and at everything that happens after it.</p>
+          <p>Luminary is a full-service marketing, sales and practice growth partner for practices that want more than posts and followers.</p>
         </div>
-        <ul class="mt-10 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-ivory/10 bg-ivory/10 text-center">
-          {['Plastic surgery', 'Medical aesthetics', 'Medical device sales', 'Sales and marketing leadership'].map((t) => <li class="bg-obsidian px-4 py-6 text-[0.72rem] uppercase tracking-[0.18em] text-ivory/80">{t}</li>)}
-        </ul>
         <div class="mt-10 flex flex-wrap items-center gap-6">
           <a href="/#contact" class="btn-lux inline-flex">Book a strategy call</a>
-          <a href="/difference" class="link-lux">The Luminary Difference</a>
+          <a href="/services" class="link-lux">Our services</a>
+        </div>
+      </div>
+      <div class="lg:col-span-6" data-reveal="right" style="--d:.12s">
+        <div class="img-round img-zoom aspect-[4/5]">
+          <img src="/images/brittney-studio.webp" alt="Brittany at work with her laptop, camera and marketing strategy books" width="896" height="1119" loading="lazy" class="object-[50%_35%]" />
         </div>
       </div>
     </div>
   </section>
-</BaseLayout>
+
+  <section class="border-y border-ivory/10 bg-graphite/40" aria-label="Experience at a glance">
+    <ul class="container-lux grid divide-y divide-ivory/10 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+      {credentials.map((c) => (
+        <li class="px-2 py-10 sm:px-8 lg:py-14" data-reveal>
+          <p class={`font-display font-light leading-tight text-gold-shine ${c.big.length < 4 ? 'text-6xl' : 'text-2xl md:text-[1.7rem]'}`}>{c.big}</p>
+          <p class="mt-3 text-[0.7rem] uppercase tracking-[0.22em] text-ivory/60">{c.label}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="container-lux py-24 md:py-36" aria-labelledby="matters-title">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-4" data-reveal>
+        <p class="eyebrow">Why it matters to you</p>
+        <h2 id="matters-title" class="h-display mt-6 text-4xl md:text-5xl">Real experience, <span class="text-gold-shine font-medium">on your side.</span></h2>
+      </div>
+      <ul class="divide-y divide-ivory/10 border-y border-ivory/10 lg:col-span-8" data-stagger>
+        {matters.map((m) => (
+          <li class="row-hover grid gap-2 py-8 md:grid-cols-[16rem_1fr] md:gap-10">
+            <h3 class="font-display text-xl font-normal text-ivory">{m.title}</h3>
+            <p class="text-[0.95rem] leading-7 text-ivory/65">{m.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-light" aria-labelledby="who-title">
+    <div class="container-lux py-24 md:py-32">
+      <div class="grid items-end gap-10 md:grid-cols-[1fr_24rem]" data-reveal>
+        <div>
+          <p class="eyebrow">Who we work with</p>
+          <h2 id="who-title" class="h-display mt-6 text-4xl md:text-5xl">Built for practices <span class="text-gold-shine font-medium">ready to grow.</span></h2>
+        </div>
+        <p class="lead">We work closely with practice owners, physicians, leadership and staff, and with business owners who want a more complete approach to marketing and growth.</p>
+      </div>
+      <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {clients.map((c) => (
+          <li class="rounded-[14px] border border-ink/10 bg-ivory px-7 py-9 font-display text-xl font-light text-ink" data-reveal>{c}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-lux py-24 text-center md:py-32">
+    <h2 class="h-display mx-auto max-w-3xl text-4xl md:text-5xl" data-reveal>Let's talk about turning attention into <span class="text-gold-shine font-medium">patients.</span></h2>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-6">
+      <a href="/#contact" class="btn-lux inline-flex">Book a strategy call</a>
+      <a href="/difference" class="link-lux">The Luminary Difference</a>
+    </div>
+  </section>
+</PageLayout>
