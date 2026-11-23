@@ -1,7 +1,160 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import LuminaryDifference from '../components/sections/LuminaryDifference.astro';
+import PageLayout from '../layouts/PageLayout.astro';
+
+const compare = [
+  { them: 'Judged by likes, reach and followers.', us: 'Judged by booked consultations and paying patients.' },
+  { them: 'Hands the lead to your front desk and moves on.', us: 'Looks at how every call, form and message is answered.' },
+  { them: 'Sees marketing, sales and operations as separate jobs.', us: 'Connects brand, marketing, team and sales in one plan.' },
+  { them: 'Learns your industry while working for you.', us: '19 years inside plastic surgery and medical aesthetics.' },
+];
+
+const stages = [
+  { title: 'Attention', text: 'Content, ads and search that the right patient actually sees.', gap: 'Gap we find: a message that sounds like every other practice.' },
+  { title: 'Inquiry', text: 'A clear way to call, message or book, on every page and profile.', gap: 'Gap we find: forms and numbers that are easy to miss.' },
+  { title: 'Front desk', text: 'Fast, warm answers from a team that knows what to say.', gap: 'Gap we find: missed calls and slow replies.' },
+  { title: 'Consultation', text: 'A visit that feels calm, clear and worth the patient\'s time.', gap: 'Gap we find: no plan to move a visit toward a decision.' },
+  { title: 'Follow-up', text: 'Simple, steady contact with people who did not book yet.', gap: 'Gap we find: leads that go quiet after one message.' },
+];
+
+const points = [
+  { title: '19 years of medical industry experience', text: 'Real-world experience in plastic surgery, medical aesthetics, medical device sales, and executive sales and marketing leadership.' },
+  { title: 'Sales experience, not just social media experience', text: 'We understand front desk operations, patient coordinators, lead follow-up, consultation scheduling, and conversion challenges.' },
+  { title: 'An executive-level perspective', text: 'Our work connects brand awareness, marketing, internal operations, and sales performance instead of treating them as separate functions.' },
+  { title: 'We look beyond the lead', text: 'A successful advertising campaign means little when incoming inquiries are not handled properly. We help find the gaps and improve the processes that drive conversion.' },
+  { title: 'Hands-on industry knowledge', text: 'We understand the pace, patient expectations, competition, technology, and business demands of the medical aesthetics industry.' },
+  { title: 'One connected growth strategy', text: 'From the first impression to the booked consultation and beyond, we make every stage of patient acquisition stronger.' },
+];
 ---
-<BaseLayout title="The Luminary Difference | Luminary Marketing">
-  <div class="pt-24 md:pt-32"><LuminaryDifference /></div>
-</BaseLayout>
+<PageLayout
+  title="The Luminary Difference | Luminary Marketing"
+  heading="The Luminary Difference"
+  eyebrow="Why Luminary"
+  lede="We do not just understand marketing. We understand what happens after it."
+  description="Luminary Marketing combines 19 years of medical aesthetics experience with sales leadership, so your marketing turns into booked consultations."
+  image="/images/photos/strategy-meeting.webp"
+  imageAlt="Team planning a marketing strategy around a conference table"
+  position="50% 40%"
+>
+  <!-- 1. Statement -->
+  <section class="container-lux py-24 md:py-36" aria-labelledby="diff-intro">
+    <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-6" data-reveal="left">
+        <p class="eyebrow">Our view</p>
+        <h2 id="diff-intro" class="h-display mt-6 text-4xl md:text-5xl">A great post is not the finish line. <span class="text-gold-shine font-medium">A booked patient is.</span></h2>
+        <div class="mt-8 max-w-xl space-y-5 text-[1.02rem] leading-8 text-ivory/70">
+          <p>Most agencies stop when the lead arrives. We have worked on the other side of that inquiry: at the front desk, in the consultation room and on the sales floor.</p>
+          <p>That is why we look at the whole path a patient takes, and fix the places where good marketing gets lost.</p>
+        </div>
+        <div class="mt-10 flex items-end gap-5">
+          <p class="font-display text-[6rem] font-extralight leading-[.8] text-gold-shine md:text-[7.5rem]" aria-hidden="true">19</p>
+          <p class="pb-1 text-[0.68rem] uppercase leading-5 tracking-[0.26em] text-champagne">Years in<br />medical<br />aesthetics</p>
+        </div>
+      </div>
+      <div class="lg:col-span-6" data-reveal="right" style="--d:.12s">
+        <div class="img-round img-zoom aspect-[4/5]">
+          <img src="/images/photos/front-desk.webp" alt="Patient coordinator greeting a visitor at a clinic front desk" width="1200" height="1500" loading="lazy" class="object-[50%_40%]" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Compare -->
+  <section class="section-light" aria-labelledby="diff-compare">
+    <div class="container-lux py-24 md:py-32">
+      <div class="max-w-3xl" data-reveal>
+        <p class="eyebrow">Side by side</p>
+        <h2 id="diff-compare" class="h-display mt-6 text-4xl md:text-5xl">Most agencies stop at the lead. <span class="text-gold-shine font-medium">We do not.</span></h2>
+      </div>
+      <div class="mt-14 grid gap-6 md:grid-cols-2" data-stagger>
+        <div class="rounded-[14px] border border-ink/10 bg-ink/[.03] p-8 md:p-10">
+          <p class="text-[0.7rem] uppercase tracking-[0.26em] text-ink/50">A typical agency</p>
+          <ul class="mt-6 divide-y divide-ink/10">
+            {compare.map((c) => <li class="py-5 text-[1rem] leading-7 text-ink/55">{c.them}</li>)}
+          </ul>
+        </div>
+        <div class="cmp-us rounded-[14px] border border-gold-deep/40 bg-white p-8 shadow-[0_30px_60px_-30px_rgb(125_91_34/.35)] md:p-10">
+          <p class="text-[0.7rem] uppercase tracking-[0.26em] text-gold-deep">Luminary</p>
+          <ul class="mt-6 divide-y divide-ink/10">
+            {compare.map((c) => (
+              <li class="tick-hover flex gap-3 py-5 text-[1rem] leading-7 text-ink">
+                <svg class="mt-1.5 h-4 w-4 shrink-0 text-gold-deep" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m4 10.5 4 4 8-9" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span>{c.us}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Patient path -->
+  <section class="container-lux py-24 md:py-36" aria-labelledby="diff-path">
+    <div class="max-w-3xl" data-reveal>
+      <p class="eyebrow">The patient path</p>
+      <h2 id="diff-path" class="h-display mt-6 text-4xl md:text-5xl">Five steps. <span class="text-gold-shine font-medium">We strengthen each one.</span></h2>
+      <p class="lead mt-6">Patients do not see "marketing" and "sales". They see one experience. We check it from the first view to the follow-up call.</p>
+    </div>
+    <ol class="path mt-16 grid gap-0 lg:grid-cols-5" data-stagger>
+      {stages.map((s, i) => (
+        <li class="path-step relative border-t border-ivory/15 py-8 lg:pr-6">
+          <span class="path-dot" aria-hidden="true"></span>
+          <p class="text-[0.7rem] uppercase tracking-[0.26em] text-champagne">Step {i + 1}</p>
+          <h3 class="mt-3 font-display text-[1.45rem] font-normal text-ivory">{s.title}</h3>
+          <p class="mt-3 text-[0.95rem] leading-7 text-ivory/65">{s.text}</p>
+          <p class="mt-4 border-l border-champagne/50 pl-3 text-[0.82rem] leading-6 text-ivory/50">{s.gap}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- 4. Six points on parallax -->
+  <section class="relative isolate overflow-hidden" aria-labelledby="diff-points">
+    <div class="fx-bg absolute inset-0 -z-20" style="background-image:url('/images/photos/analytics-dark.webp')" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(10_10_11/.9),rgb(10_10_11/.78)_50%,rgb(10_10_11/.92))]" aria-hidden="true"></div>
+    <div class="container-lux py-28 md:py-40">
+      <div class="max-w-3xl" data-reveal>
+        <p class="eyebrow">What you get</p>
+        <h2 id="diff-points" class="h-display mt-6 text-4xl md:text-5xl">Six reasons practices <span class="text-gold-shine font-medium">choose Luminary.</span></h2>
+      </div>
+      <ul class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-stagger>
+        {points.map((p) => (
+          <li class="glass-card rounded-[14px] p-8">
+            <h3 class="font-display text-[1.3rem] font-normal leading-snug text-ivory">{p.title}</h3>
+            <p class="mt-3 text-[0.95rem] leading-7 text-ivory/70">{p.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section class="container-lux py-24 md:py-32" aria-labelledby="diff-cta">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-7" data-reveal>
+        <h2 id="diff-cta" class="h-display text-4xl md:text-5xl">Let us find where your marketing <span class="text-gold-shine font-medium">is losing patients.</span></h2>
+        <p class="lead mt-6 max-w-xl">Your success requires more than great content. It requires the right strategy, the right team, the right follow-up, and an understanding of how your business works.</p>
+        <div class="mt-9 flex flex-wrap items-center gap-6">
+          <a href="/#contact" class="btn-lux inline-flex">Book a strategy call</a>
+          <a href="/services" class="link-lux">Our services</a>
+        </div>
+      </div>
+      <div class="lg:col-span-5" data-reveal="zoom">
+        <div class="img-round img-zoom aspect-[4/3]">
+          <img src="/images/photos/event-dinner.webp" alt="Guests at a private evening event for a medical practice" width="1200" height="900" loading="lazy" class="object-[50%_50%]" />
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .fx-bg { background-size: cover; background-position: center; }
+  @media (min-width: 1024px) and (hover: hover) { .fx-bg { background-attachment: fixed; } }
+  .glass-card { background: rgb(10 10 11 / .55); border: 1px solid rgb(247 242 233 / .12); backdrop-filter: blur(10px); transition: transform .5s cubic-bezier(.2,.7,.2,1), border-color .4s, background .4s; }
+  .glass-card:hover { transform: translateY(-4px); border-color: rgb(217 185 122 / .5); background: rgb(10 10 11 / .7); }
+  .path-dot { position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 9999px; background: var(--color-champagne); box-shadow: 0 0 0 4px rgb(217 185 122 / .15); }
+  @media (max-width: 1023px) {
+    .path-step { padding-left: 1.5rem; border-top: 0; border-left: 1px solid rgb(247 242 233 / .15); }
+    .path-dot { top: 2.2rem; left: -5px; }
+  }
+</style>
