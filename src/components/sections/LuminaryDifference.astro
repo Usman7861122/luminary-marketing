@@ -1,0 +1,33 @@
+---
+const points = [
+  { title: '19 years of medical industry experience', text: 'Real-world experience in plastic surgery, medical aesthetics, medical device sales, and executive sales and marketing leadership.' },
+  { title: 'Sales experience, not just social media experience', text: 'We understand front desk operations, patient coordinators, lead follow-up, consultation scheduling, and conversion challenges.' },
+  { title: 'An executive-level perspective', text: 'Our work connects brand awareness, marketing, internal operations, and sales performance instead of treating them as separate functions.' },
+  { title: 'We look beyond the lead', text: 'A successful advertising campaign means little when incoming inquiries are not handled properly. We help find the gaps and improve the processes that drive conversion.' },
+  { title: 'Hands-on industry knowledge', text: 'We understand the pace, patient expectations, competition, technology, and business demands of the medical aesthetics industry.' },
+  { title: 'One connected growth strategy', text: 'From the first impression to the booked consultation and beyond, we make every stage of patient acquisition stronger.' },
+];
+---
+<section id="difference" class="container-lux py-28 md:py-40" aria-labelledby="diff-title">
+  <div class="grid gap-14 lg:grid-cols-12 lg:gap-20">
+    <div class="lg:col-span-5" data-reveal="left">
+      <p class="eyebrow">The Luminary Difference</p>
+      <h2 id="diff-title" class="h-display mt-6 text-4xl md:text-6xl">We do not just understand marketing. <span class="text-gold-shine font-medium">We understand what happens after it.</span></h2>
+      <p class="lead mt-7 max-w-md">More than marketing. We understand the business behind it.</p>
+      <p class="mt-10 font-display text-[7rem] font-extralight leading-none text-gold-shine md:text-[9rem]" aria-hidden="true">19</p>
+      <p class="mt-2 text-[0.7rem] uppercase tracking-[0.28em] text-champagne">Years in medical aesthetics</p>
+    </div>
+    <div class="lg:col-span-7" data-reveal="right" style="--d:.12s">
+      <ul data-stagger class="divide-y divide-ivory/10 border-y border-ivory/10">
+        {points.map((p) => (
+          <li class="row-hover grid gap-2 py-6 md:grid-cols-[16rem_1fr] md:gap-10">
+            <h3 class="font-display text-xl font-normal text-ivory">{p.title}</h3>
+            <p class="text-[0.95rem] leading-7 text-ivory/65">{p.text}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-10 max-w-xl font-display text-xl font-light leading-snug text-ivory/90">Your success requires more than great content. It requires the right strategy, the right team, the right follow-up, and an understanding of how your business works.</p>
+      <a href="/#contact" class="btn-lux mt-8 inline-flex">Book a strategy call</a>
+    </div>
+  </div>
+</section>

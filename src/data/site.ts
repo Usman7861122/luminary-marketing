@@ -11,9 +11,8 @@ export const site = {
   nav: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Services', href: '/#services' },
-    { label: 'Portfolio', href: '/#portfolio' },
-    { label: 'Blog', href: '/#journal' },
+    { label: 'Services', href: '/services' },
+    { label: 'The Luminary Difference', href: '/difference' },
     { label: 'Contact', href: '/#contact' },
   ],
 };

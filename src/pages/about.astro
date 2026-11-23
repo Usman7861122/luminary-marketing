@@ -1,9 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/astro/Section.astro';
 ---
-<BaseLayout title="About">
-  <Section title="About">
-    <p>TODO: About page content.</p>
-  </Section>
+<BaseLayout title="About | Luminary Marketing">
+  <section class="container-lux pb-28 pt-36 md:pb-40 md:pt-44" aria-labelledby="about-title">
+    <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-5" data-reveal="left">
+        <div class="img-round img-zoom aspect-[4/5]">
+          <img src="/images/brittney-portrait.webp" alt="Brittany Garabedian, founder of Luminary Marketing" width="1000" height="1500" class="object-[50%_20%]" />
+        </div>
+      </div>
+      <div class="lg:col-span-7" data-reveal="right" style="--d:.12s">
+        <p class="eyebrow">About us</p>
+        <h1 id="about-title" class="h-display mt-6 text-4xl md:text-6xl">Brittany Garabedian. <span class="text-gold-shine font-medium">19 years inside the industry.</span></h1>
+        <div class="mt-8 max-w-xl space-y-5 text-[1.02rem] leading-8 text-ivory/70">
+          <p>Brittany's career spans plastic surgery, medical aesthetics, medical device sales, practice management and sales conversion, including leadership as a Director of Sales and Marketing.</p>
+          <p>She has managed sales, marketing, teams and the daily operations of a practice. That is why Luminary looks past the lead and at everything that happens after it: front desk performance, phone inquiries, consultation bookings, follow-up and patient conversions.</p>
+          <p>Luminary is a full-service marketing, sales and practice growth partner for plastic surgeons, med spas, wellness businesses and established medical practices.</p>
+        </div>
+        <ul class="mt-10 grid max-w-xl grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-ivory/10 bg-ivory/10 text-center">
+          {['Plastic surgery', 'Medical aesthetics', 'Medical device sales', 'Sales and marketing leadership'].map((t) => <li class="bg-obsidian px-4 py-6 text-[0.72rem] uppercase tracking-[0.18em] text-ivory/80">{t}</li>)}
+        </ul>
+        <div class="mt-10 flex flex-wrap items-center gap-6">
+          <a href="/#contact" class="btn-lux inline-flex">Book a strategy call</a>
+          <a href="/difference" class="link-lux">The Luminary Difference</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

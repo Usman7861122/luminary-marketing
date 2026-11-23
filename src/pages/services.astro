@@ -1,9 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Section from '../components/astro/Section.astro';
+import { serviceGroups } from '../data/services';
+const pill = ['Executive strategy','Sales and conversion','Social and content','Paid advertising','Devices and aesthetics','Brand and digital','Events and community','Reporting'];
 ---
-<BaseLayout title="Services">
-  <Section title="Services">
-    <p>TODO: Services page content.</p>
-  </Section>
+<BaseLayout title="Services | Luminary Marketing">
+  <section class="container-lux pb-10 pt-36 md:pt-44" aria-labelledby="svc-title">
+    <div data-reveal>
+      <p class="eyebrow">Our services</p>
+      <h1 id="svc-title" class="h-display mt-6 max-w-4xl text-5xl md:text-7xl">More than marketing. <span class="text-gold-shine font-medium">We understand the business behind it.</span></h1>
+      <p class="lead mt-8 max-w-2xl">We focus on the whole process, from brand awareness and patient acquisition to staff performance, lead management, consultation bookings and conversions.</p>
+    </div>
+    <nav class="mt-12 flex flex-wrap gap-3" aria-label="Service categories">
+      {serviceGroups.map((g, i) => <a href={`#${g.slug}`} class="rounded-full border border-ivory/15 px-4 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-ivory/70 transition-colors hover:border-champagne hover:text-champagne">{g.n} {pill[i]}</a>)}
+    </nav>
+  </section>
+
+  {serviceGroups.map((g) => (
+    <section id={g.slug} class="container-lux scroll-mt-28 py-14 md:py-20" aria-labelledby={`${g.slug}-t`}>
+      <div class="grid gap-10 border-t border-ivory/10 pt-12 lg:grid-cols-12 lg:gap-16" data-reveal>
+        <div class="lg:col-span-4">
+          <p class="font-display text-sm tracking-[0.3em] text-champagne">{g.n}</p>
+          <h2 id={`${g.slug}-t`} class="h-display mt-4 text-3xl md:text-4xl">{g.title}</h2>
+          <p class="mt-5 text-[0.95rem] leading-7 text-ivory/65">{g.text}</p>
+        </div>
+        <ul class="divide-y divide-ivory/10 border-y border-ivory/10 lg:col-span-8">
+          {g.items.map(([name, text]) => (
+            <li class="row-hover grid gap-2 py-5 md:grid-cols-[17rem_1fr] md:gap-10">
+              <h3 class="font-display text-lg font-normal text-ivory">{name}</h3>
+              <p class="text-[0.92rem] leading-7 text-ivory/65">{text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  ))}
+
+  <section class="container-lux py-24 text-center">
+    <h2 class="h-display mx-auto max-w-3xl text-3xl md:text-5xl">Ready to turn attention into <span class="text-gold-shine font-medium">booked consultations?</span></h2>
+    <a href="/#contact" class="btn-lux mt-10 inline-flex">Book a strategy call</a>
+  </section>
 </BaseLayout>
