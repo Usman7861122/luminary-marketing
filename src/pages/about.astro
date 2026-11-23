@@ -12,7 +12,12 @@ const matters = [
   { title: 'What happens after the inquiry', text: 'Front desk performance, phone inquiries, patient coordinators, consultation bookings and follow-up all decide whether marketing pays off. She has led teams through every one of them.' },
   { title: 'Marketing with sales leadership', text: 'Luminary combines creative marketing with real-world sales leadership and medical industry experience, so strategy and conversion work as one.' },
 ];
-const clients = ['Plastic surgeons', 'Med spas', 'Wellness businesses', 'Established medical practices'];
+const clients = [
+  { title: 'Plastic surgeons', text: 'Consultation-focused marketing and sales support for surgical practices.', image: '/images/stock/doctor-consult.webp', pos: '30% 40%' },
+  { title: 'Med spas', text: 'Content, ads and follow-up that keep treatment rooms and calendars full.', image: '/images/stock/consult-aesthetic.webp', pos: '55% 30%' },
+  { title: 'Wellness businesses', text: 'A calm, premium brand and a clear path from inquiry to booking.', image: '/images/stock/portrait-calm.webp', pos: '60% 30%' },
+  { title: 'Established medical practices', text: 'Executive-level strategy and team training for practices ready to scale.', image: '/images/stock/clinic-white.webp', pos: '50% 50%' },
+];
 ---
 <PageLayout
   title="About | Luminary Marketing"
@@ -88,9 +93,24 @@ const clients = ['Plastic surgeons', 'Med spas', 'Wellness businesses', 'Establi
         </div>
         <p class="lead">We work closely with practice owners, physicians, leadership and staff, and with business owners who want a more complete approach to marketing and growth.</p>
       </div>
-      <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {clients.map((c) => (
-          <li class="rounded-[14px] border border-ink/10 bg-ivory px-7 py-9 font-display text-xl font-light text-ink" data-reveal>{c}</li>
+      <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        {clients.map((c, i) => (
+          <li data-reveal style={`--d:${i * 0.08}s`}>
+            <a href="/services" class="who group relative block aspect-[4/5] overflow-hidden rounded-[14px] bg-obsidian text-ivory shadow-[0_30px_60px_-35px_rgba(22,19,14,.7)]">
+              <img src={c.image} alt="" loading="lazy" style={`object-position:${c.pos}`} class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.08]" />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/45 to-obsidian/10 transition-opacity duration-500 group-hover:from-obsidian/90"></div>
+              <span aria-hidden="true" class="who-ring pointer-events-none absolute inset-3 rounded-[10px] border border-ivory/0 transition-colors duration-500 group-hover:border-champagne/70"></span>
+              <div aria-hidden="true" class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-obsidian/55 to-transparent"></div>
+              <span aria-hidden="true" class="absolute left-6 top-6 font-display text-xs tracking-[0.3em] text-champagne">0{i + 1}</span>
+              <div class="absolute inset-x-0 bottom-0 p-6">
+                <h3 class="font-display text-[1.45rem] font-light leading-tight">{c.title}</h3>
+                <p class="who-text overflow-hidden text-[0.88rem] leading-6 text-ivory/80">{c.text}</p>
+                <span class="mt-4 inline-flex items-center gap-2 text-[0.66rem] font-medium uppercase tracking-[0.22em] text-champagne-soft">How we help
+                  <svg class="h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+              </div>
+            </a>
+          </li>
         ))}
       </ul>
     </div>
@@ -106,6 +126,14 @@ const clients = ['Plastic surgeons', 'Med spas', 'Wellness businesses', 'Establi
 </PageLayout>
 
 <style>
+  .who { transition: transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .6s; }
+  .who:hover, .who:focus-visible { transform: translateY(-8px); box-shadow: 0 45px 70px -35px rgba(22,19,14,.85), 0 0 0 1px rgb(217 185 122 / .35); }
+  @media (hover: hover) and (min-width: 768px) {
+    .who-text { max-height: 0; opacity: 0; padding-top: 0; transition: max-height .5s ease-out, opacity .5s ease-out, padding-top .5s ease-out; }
+    .who:hover .who-text, .who:focus-visible .who-text { max-height: 8rem; opacity: 1; padding-top: .75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .who:hover { transform: none; } }
+
   .fx-bg { background-size: cover; background-position: center; background-repeat: no-repeat; }
   @media (min-width: 1024px) and (hover: hover) { .fx-bg { background-attachment: fixed; } }
 
