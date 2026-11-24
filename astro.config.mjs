@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://example.com',
+  redirects: { '/home-2': '/' },
   integrations: [react(), sitemap()],
   vite: { plugins: [tailwindcss()] },
 });
