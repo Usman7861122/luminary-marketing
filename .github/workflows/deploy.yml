@@ -1,0 +1,59 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One deploy at a time. A newer push waits for the running one to finish.
+concurrency:
+  group: deploy-s3
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Check AWS settings
+        env:
+          BUCKET: ${{ vars.S3_BUCKET }}
+          REGION: ${{ vars.AWS_REGION }}
+          KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          SECRET: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          for v in BUCKET REGION KEY SECRET; do
+            if [ -z "${!v}" ]; then echo "::error::Missing setting: $v. See the repo Settings > Secrets and variables > Actions."; exit 1; fi
+          done
+
+      - name: Upload to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ vars.AWS_REGION }}
+          BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          # 1) Hashed build files: cache for a year.
+          aws s3 sync dist/_astro "s3://$BUCKET/_astro" --delete \
+            --cache-control "public,max-age=31536000,immutable"
+          # 2) Images, icons and other files: cache for one day.
+          aws s3 sync dist "s3://$BUCKET" --delete \
+            --exclude "_astro/*" --exclude "*.html" --exclude "sitemap*.xml" \
+            --cache-control "public,max-age=86400"
+          # 3) Pages and sitemaps: always check for a new version.
+          aws s3 sync dist "s3://$BUCKET" \
+            --exclude "*" --include "*.html" --include "sitemap*.xml" \
+            --cache-control "public,max-age=0,must-revalidate"
